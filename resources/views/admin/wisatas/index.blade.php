@@ -10,7 +10,7 @@
             <h1 class="text-3xl font-bold text-gray-900">🗺️ Kelola Wisata</h1>
             <p class="text-gray-600 mt-2">Daftar semua destinasi wisata di sistem</p>
         </div>
-        <a href="{{ route('admin.wisatas.create') }}" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-bold hover:from-green-600 hover:to-green-700 transition shadow-lg">
+        <a href="{{ route('admin.wisatas.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-bold hover:from-blue-700 hover:to-blue-800 transition shadow-lg hover:shadow-xl">
             ➕ Tambah Wisata Baru
         </a>
     </div>
@@ -23,18 +23,18 @@
     @endif
 
     <!-- Wisata Table -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
         <div class="overflow-x-auto">
             <table class="w-full">
-                <thead class="bg-gray-50 border-b border-gray-200">
+                <thead class="bg-gradient-to-r from-blue-50 to-blue-100 border-b-2 border-blue-200">
                     <tr>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">No</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Judul</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Kategori</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Lokasi</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Harga</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Status</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Aksi</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">No</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Judul</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Kategori</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Lokasi</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Harga</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Status</th>
+                        <th class="px-6 py-4 text-left text-sm font-bold text-blue-900">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
@@ -67,16 +67,16 @@
                             </td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex gap-2">
-                                    <a href="{{ route('wisatas.show', $wisata->slug) }}" target="_blank" class="text-blue-600 hover:text-blue-700 font-medium" title="Lihat di website">
+                                    <a href="{{ route('wisatas.show', $wisata->slug) }}" target="_blank" class="text-blue-600 hover:text-blue-800 font-bold text-xs bg-blue-100 px-2 py-1 rounded transition" title="Lihat di website">
                                         👁️ Lihat
                                     </a>
-                                    <a href="{{ route('admin.wisatas.index') }}" class="text-yellow-600 hover:text-yellow-700 font-medium" title="Edit">
+                                    <a href="{{ route('admin.wisatas.edit', $wisata) }}" class="text-amber-600 hover:text-amber-800 font-bold text-xs bg-amber-100 px-2 py-1 rounded transition" title="Edit">
                                         ✏️ Edit
                                     </a>
                                     <form action="{{ route('admin.wisatas.destroy', $wisata) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus wisata ini?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-700 font-medium" title="Hapus">
+                                        <button type="submit" class="text-red-600 hover:text-red-800 font-bold text-xs bg-red-100 px-2 py-1 rounded transition" title="Hapus">
                                             🗑️ Hapus
                                         </button>
                                     </form>

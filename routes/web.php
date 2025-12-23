@@ -34,6 +34,8 @@ Route::prefix('admin')
 
         // Categories
         Route::get('categories', [AdminController::class, 'categoriesIndex'])->name('categories.index');
+        Route::get('categories/create', [AdminController::class, 'categoriesCreate'])->name('categories.create');
+        Route::get('categories/{category}/edit', [AdminController::class, 'categoriesEdit'])->name('categories.edit');
         Route::post('categories', [AdminController::class, 'categoriesStore'])->name('categories.store');
         Route::put('categories/{category}', [AdminController::class, 'categoriesUpdate'])->name('categories.update');
         Route::delete('categories/{category}', [AdminController::class, 'categoriesDestroy'])->name('categories.destroy');
@@ -41,6 +43,7 @@ Route::prefix('admin')
         // Wisatas
         Route::get('wisatas', [AdminController::class, 'wisatasIndex'])->name('wisatas.index');
         Route::get('wisatas/create', [AdminController::class, 'wisatasCreate'])->name('wisatas.create');
+        Route::get('wisatas/{wisata}/edit', [AdminController::class, 'wisatasEdit'])->name('wisatas.edit');
         Route::post('wisatas', [AdminController::class, 'wisatasStore'])->name('wisatas.store');
         Route::put('wisatas/{wisata}', [AdminController::class, 'wisatasUpdate'])->name('wisatas.update');
         Route::delete('wisatas/{wisata}', [AdminController::class, 'wisatasDestroy'])->name('wisatas.destroy');

@@ -31,7 +31,23 @@ class AdminController extends Controller
     public function categoriesIndex()
     {
         $categories = Category::orderBy('name')->paginate(20);
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.kategori.index', compact('categories'));
+    }
+
+    /**
+     * Show form to create new category.
+     */
+    public function categoriesCreate()
+    {
+        return view('admin.kategori.create');
+    }
+
+    /**
+     * Show form to edit existing category.
+     */
+    public function categoriesEdit(Category $category)
+    {
+        return view('admin.kategori.edit', compact('category'));
     }
 
     /**
@@ -47,7 +63,7 @@ class AdminController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category created.');
+        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil ditambahkan!');
     }
 
     /**
@@ -63,7 +79,7 @@ class AdminController extends Controller
 
         $category->update($data);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category updated.');
+        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil diubah!');
     }
 
     /**
@@ -72,7 +88,7 @@ class AdminController extends Controller
     public function categoriesDestroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index')->with('success', 'Category deleted.');
+        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus!');
     }
 
     // -------------------- Wisatas --------------------
@@ -95,6 +111,15 @@ class AdminController extends Controller
     }
 
     /**
+     * Show form to edit existing wisata.
+     */
+    public function wisatasEdit(Wisata $wisata)
+    {
+        $categories = Category::all();
+        return view('admin.wisatas.edit', compact('wisata', 'categories'));
+    }
+
+    /**
      * Store a new wisata.
      */
     public function wisatasStore(Request $request)
@@ -106,7 +131,7 @@ class AdminController extends Controller
             'description' => 'nullable|string',
             'location' => 'nullable|string|max:255',
             'price' => 'nullable|numeric|min:0',
-            'image' => 'nullable|string',
+            'image' => 'nullable|url',
             'published' => 'sometimes|boolean',
         ]);
 
@@ -127,12 +152,13 @@ class AdminController extends Controller
             'description' => 'nullable|string',
             'location' => 'nullable|string|max:255',
             'price' => 'nullable|numeric|min:0',
+            'image' => 'nullable|url',
             'published' => 'sometimes|boolean',
         ]);
 
         $wisata->update($data);
 
-        return redirect()->route('admin.wisatas.index')->with('success', 'Wisata updated.');
+        return redirect()->route('admin.wisatas.index')->with('success', 'Wisata berhasil diubah!');
     }
 
     /**
@@ -141,7 +167,7 @@ class AdminController extends Controller
     public function wisatasDestroy(Wisata $wisata)
     {
         $wisata->delete();
-        return redirect()->route('admin.wisatas.index')->with('success', 'Wisata deleted.');
+        return redirect()->route('admin.wisatas.index')->with('success', 'Wisata berhasil dihapus!');
     }
 
     // -------------------- Users --------------------
@@ -165,7 +191,7 @@ class AdminController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('admin.users.index')->with('success', 'User updated.');
+        return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil diubah!');
     }
 
     /**
@@ -174,7 +200,7 @@ class AdminController extends Controller
     public function usersDestroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'User deleted.');
+        return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil dihapus!');
     }
 
     // -------------------- About --------------------

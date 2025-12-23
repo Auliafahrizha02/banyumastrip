@@ -24,8 +24,8 @@
         @csrf
 
         <!-- Kategori & Status -->
-        <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">📋 Informasi Dasar</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">📋 Informasi Dasar</h3>
             
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Kategori -->
@@ -70,8 +70,8 @@
         </div>
 
         <!-- Judul & Slug -->
-        <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">📝 Judul & URL</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">📝 Judul & URL</h3>
             
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Judul -->
@@ -116,8 +116,8 @@
         </div>
 
         <!-- Lokasi & Harga -->
-        <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">📍 Lokasi & Harga</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">📍 Lokasi & Harga</h3>
             
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Lokasi -->
@@ -162,8 +162,8 @@
         </div>
 
         <!-- Deskripsi -->
-        <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">📖 Deskripsi Lengkap</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">📖 Deskripsi Lengkap</h3>
             
             <textarea
                 id="description"
@@ -179,8 +179,8 @@
         </div>
 
         <!-- Gambar -->
-        <div class="bg-white p-6 rounded-lg shadow border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">🖼️ Gambar</h3>
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">🖼️ Gambar</h3>
             
             <label for="image" class="block text-sm font-semibold text-gray-900 mb-2">
                 URL Gambar
@@ -200,13 +200,13 @@
         </div>
 
         <!-- Info Box -->
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 shadow-sm">
             <h4 class="font-bold text-blue-900 mb-3">📌 Tips Mengisi Form</h4>
             <ul class="text-blue-800 text-sm space-y-2 list-disc list-inside">
                 <li><strong>Kategori:</strong> Pilih yang paling sesuai dengan jenis wisata</li>
                 <li><strong>Slug:</strong> Harus unik (tidak boleh sama dengan wisata lain)</li>
                 <li><strong>Deskripsi:</strong> Jelaskan detail wisata, fasilitas, aktivitas, dll</li>
-                <li><strong>Gambar:</strong> Gunakan URL eksternal (Unsplash, Imgur, dll)</li>
+                <li><strong>Gambar:</strong> Gunakan URL eksternal (Unsplash, Pexels, Imgur, dll)</li>
                 <li><strong>Status:</strong> Centang untuk langsung tampil di website</li>
             </ul>
         </div>
@@ -215,13 +215,13 @@
         <div class="flex gap-4 pb-6">
             <button
                 type="submit"
-                class="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-bold hover:from-green-600 hover:to-green-700 transition shadow-lg"
+                class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-bold hover:from-blue-700 hover:to-blue-800 transition shadow-lg hover:shadow-xl"
             >
                 ✅ Tambah Wisata
             </button>
             <a
                 href="{{ route('admin.wisatas.index') }}"
-                class="flex-1 bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-300 transition text-center"
+                class="flex-1 bg-gray-300 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-400 transition text-center shadow-md"
             >
                 ← Batal
             </a>
